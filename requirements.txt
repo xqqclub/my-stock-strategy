@@ -1,0 +1,4 @@
+finlab
+streamlit
+pandas
+matplotlib
