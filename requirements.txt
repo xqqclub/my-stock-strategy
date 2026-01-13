@@ -1,4 +1,4 @@
 finlab
 streamlit
-pandas
+pandas<2.0.0
 matplotlib
