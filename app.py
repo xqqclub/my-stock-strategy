@@ -6,8 +6,10 @@ import matplotlib.pyplot as plt
 # 設定頁面標題
 st.title("🚀 台股深度價值動能策略")
 
-# 登入 FinLab (建議將 Token 放在 Streamlit 的 Secrets 管理，不要寫死在程式碼)
-# data.login(api_token="YOUR_API_TOKEN") 
+if 'FINLAB_TOKEN' in st.secrets:
+    data.login(st.secrets['FINLAB_TOKEN'])
+else:
+    st.error("請先設定 Secrets 才能執行！")
 
 if st.button('執行策略回測與選股'):
     with st.spinner('正在下載資料與運算中...'):
@@ -44,4 +46,5 @@ if st.button('執行策略回測與選股'):
         # 繪製回測曲線
         st.subheader("📈 資產走勢圖")
         fig = report.plot() # 取得 matplotlib 圖表
+
         st.pyplot(fig) # 在網頁上顯示
