@@ -1,4 +1,10 @@
 import streamlit as st
+# ... 其他 import
+
+st.write("目前讀到的 Secrets 鑰匙有：", st.secrets.keys()) 
+# 這會列出所有的 key，看看有沒有 'FINLAB_TOKEN'
+
+import streamlit as st
 from finlab import data
 from finlab.backtest import sim
 import matplotlib.pyplot as plt
@@ -48,3 +54,4 @@ if st.button('執行策略回測與選股'):
         fig = report.plot() # 取得 matplotlib 圖表
 
         st.pyplot(fig) # 在網頁上顯示
+
